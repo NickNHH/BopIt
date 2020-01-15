@@ -6,14 +6,6 @@
     android:background="#000000"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
     <Button
         android:id="@+id/singlePlayerBtn"
         android:layout_width="206dp"
@@ -24,6 +16,7 @@
         android:layout_marginStart="102dp"
         android:layout_marginTop="210dp"
         android:background="#ff6633"
+        android:onClick="playSingleplayer"
         android:text="@string/singleplayer"
         android:textColor="#ffffff" />
 
@@ -35,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="300dp"
         android:background="#ff6633"
+        android:onClick="playMultiplayer"
         android:text="@string/multiplayer"
         android:textColor="#ffffff" />
 
