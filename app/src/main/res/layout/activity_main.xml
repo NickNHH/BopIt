@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <Button
+        android:id="@+id/singlePlayerBtn"
+        android:layout_width="206dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="0dp"
+        android:paddingHorizontal="10dp"
+        android:background="#ff6633"
+        android:text="@string/singleplayer"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/mulitplayerBtn"
+        android:layout_width="206dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff6633"
+        android:text="@string/multiplayer"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

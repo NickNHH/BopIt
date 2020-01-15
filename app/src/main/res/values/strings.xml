@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BopIt</string>
+    <string name="singleplayer">Solo Bop</string>
+    <string name="multiplayer">Party Bop</string>
+</resources>
