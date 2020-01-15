@@ -4,4 +4,6 @@
     <string name="multiplayer">Party Bop</string>
     <string name="tutorialDesc">Picture of a question mark</string>
     <string name="settingsDesc">Picture of a gear</string>
+    <string name="bopItBtn">Bop It!</string>
+    <string name="commandDefault">Commands will be shown here</string>
 </resources>
