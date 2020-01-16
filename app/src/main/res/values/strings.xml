@@ -6,4 +6,5 @@
     <string name="settingsDesc">Picture of a gear</string>
     <string name="bopItBtn">Bop It!</string>
     <string name="commandDefault">Commands will be shown here</string>
+    <string name="scoreDefault">0</string>
 </resources>
