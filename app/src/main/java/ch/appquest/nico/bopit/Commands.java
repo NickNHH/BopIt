@@ -2,10 +2,10 @@ package ch.appquest.nico.bopit;
 
 import java.util.ArrayList;
 
-public class Commands {
+class Commands {
     private ArrayList<Command> commands = new ArrayList<>();
 
-    public ArrayList<Command> getCommands() {
+    ArrayList<Command> getCommands() {
         return commands;
     }
 

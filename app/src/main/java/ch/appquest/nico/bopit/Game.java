@@ -26,7 +26,10 @@ class Game {
         return gameDelay;
     }
 
-    boolean checkIfValid() {
+    boolean checkIfValid(Command command) {
+        switch (command.getName()) {
+
+        }
         return true;
     }
 
