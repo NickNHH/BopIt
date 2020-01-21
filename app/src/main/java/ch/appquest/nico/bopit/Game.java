@@ -4,6 +4,7 @@ import java.util.Random;
 
 class Game {
     private Commands commands = new Commands();
+    private Validate validate = new Validate();
     private int score = 0;
     private int gameDelay = 5000;
 
@@ -26,14 +27,35 @@ class Game {
     }
 
     boolean checkIfValid(Command command) {
-        switch (command.getName()) {
+        boolean isValid;
 
+        switch (command.getName().toLowerCase().trim()) {
+            case "bop it!":
+                isValid = validate.bop();
+                break;
+            case "swipe it!":
+                isValid = validate.swipe();
+                break;
+            case "spin it!":
+                isValid = validate.spin();
+                break;
+            case "flip it!":
+                isValid = validate.flip();
+                break;
+            case "shake it!":
+                isValid = validate.shake();
+                break;
+            case "leave it!":
+                isValid = validate.leave();
+                break;
+            default:
+                isValid = false;
         }
-        return true;
+        return isValid;
     }
 
     void addScore(int points) {
-        score += points ;
+        score += points;
     }
 
     int getScore() {
