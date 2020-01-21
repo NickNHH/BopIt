@@ -1,6 +1,11 @@
 package ch.appquest.nico.bopit;
 
-public class Validate {
+class Validate {
+    private int gameSpeed;
+
+    Validate(int gameSpeed) {
+        this.gameSpeed = gameSpeed;
+    }
 
     boolean bop() {
         return true;
@@ -24,5 +29,13 @@ public class Validate {
 
     boolean leave() {
         return true;
+    }
+
+    private void pause() {
+        try {
+            Thread.sleep(gameSpeed);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

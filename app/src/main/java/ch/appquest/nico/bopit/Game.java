@@ -4,7 +4,7 @@ import java.util.Random;
 
 class Game {
     private Commands commands = new Commands();
-    private Validate validate = new Validate();
+    private Validate validate = new Validate(getGameSpeed());
     private int score = 0;
     private int gameDelay = 5000;
 
