@@ -4,7 +4,6 @@ import java.util.Random;
 
 class Game {
     private Commands commands = new Commands();
-    private Command currentCommand;
     private int score = 0;
     private int gameDelay = 5000;
 
@@ -12,14 +11,14 @@ class Game {
         commands.setCommands();
         Random random = new Random();
         int number = random.nextInt(commands.getCommands().size());
-        currentCommand = commands.getCommands().get(number);
 
-        return currentCommand;
+        return commands.getCommands().get(number);
     }
 
     void increaseSpeed() {
-        //TODO: Minimum speed
-        gameDelay -= 200;
+        if (gameDelay >= 400) {
+            gameDelay -= 200;
+        }
     }
 
     int getGameSpeed() {
@@ -33,8 +32,8 @@ class Game {
         return true;
     }
 
-    void addScore() {
-        score += currentCommand.getPoints() ;
+    void addScore(int points) {
+        score += points ;
     }
 
     int getScore() {

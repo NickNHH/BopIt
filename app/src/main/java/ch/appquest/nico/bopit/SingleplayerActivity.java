@@ -74,16 +74,11 @@ public class SingleplayerActivity extends AppCompatActivity {
             Command command = game.chooseCommand();
             commandView.setText(command.getName());
 
-            try {
-                Thread.sleep(game.getGameSpeed());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            isValid = game.checkIfValid();
+            isValid = game.checkIfValid(command);
 
             if (isValid) {
                 System.out.println("valid");
-                game.addScore();
+                game.addScore(command.getPoints());
                 scoreView.setText(String.valueOf(game.getScore()));
                 game.increaseSpeed();
                 System.out.println(game.getGameSpeed());
