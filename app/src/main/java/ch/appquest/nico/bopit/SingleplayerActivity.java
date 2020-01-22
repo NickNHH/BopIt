@@ -149,8 +149,8 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
         currentCommand = game.chooseCommand();
         commandView.setText(currentCommand.getName());
 
-        while (!isValid) {
-            isValid = game.checkIfValid(currentCommand, currentEvent);
+        //while (!isValid) {
+            //isValid = game.checkIfValid(currentCommand, currentEvent);
             if (isValid) {
                 System.out.println("valid");
                 game.addScore(currentCommand.getPoints());
@@ -161,7 +161,7 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
                 game.endGame();
                 inProgress[0] = false;
             }
-        }
+        //}
         //}
     }
 }
