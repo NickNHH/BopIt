@@ -1,5 +1,7 @@
 package ch.appquest.nico.bopit;
 
+import android.hardware.SensorEvent;
+
 import java.util.Random;
 
 class Game {
@@ -13,7 +15,7 @@ class Game {
         Random random = new Random();
         int number = random.nextInt(commands.getCommands().size());
 
-        return commands.getCommands().get(number);
+        return commands.getCommands().get(4);
     }
 
     void increaseSpeed() {
@@ -26,7 +28,7 @@ class Game {
         return gameDelay;
     }
 
-    boolean checkIfValid(Command command) {
+    boolean checkIfValid(Command command, SensorEvent event) {
         boolean isValid;
 
         switch (command.getName().toLowerCase().trim()) {
@@ -40,10 +42,10 @@ class Game {
                 isValid = validate.spin();
                 break;
             case "flip it!":
-                isValid = validate.flip();
+                isValid = validate.flip(event);
                 break;
             case "shake it!":
-                isValid = validate.shake();
+                isValid = validate.shake(event);
                 break;
             case "leave it!":
                 isValid = validate.leave();
