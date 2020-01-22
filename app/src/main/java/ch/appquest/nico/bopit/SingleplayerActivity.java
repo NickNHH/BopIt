@@ -27,6 +27,10 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
     Game game;
     boolean isValid = false;
     private long countdown;
+    private long lastUpdate = 0L;
+    private float last_x = 0f;
+    private float last_y = 0f;
+    private float last_z = 0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +61,33 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER && !isValid) {
-            //System.out.println(currentCommand.getName());
-            isValid = game.checkIfValid(currentCommand, event);
-            //System.out.println(isValid);
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            long curTime = System.currentTimeMillis();
+
+            if ((curTime - lastUpdate) > 100) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+
+                Float x = event.values[0];
+                Float y = event.values[1];
+                Float z = event.values[2];
+                //float speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                float speed = 801;
+
+                if (speed > 800) {
+                    long value = curTime - countdown;
+                    if (value < 1000) {
+                        sensorManager.unregisterListener(this);
+                        System.out.println("yes");
+                    } else if (value > 1000) {
+                        sensorManager.unregisterListener(this);
+                        System.out.println("no");
+                    }
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
         }
     }
 
@@ -119,10 +146,11 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
 
         //while (inProgress[0]) {
         //for (int i = 0; i < 20; i++) {
-            currentCommand = game.chooseCommand();
-            commandView.setText(currentCommand.getName());
+        currentCommand = game.chooseCommand();
+        commandView.setText(currentCommand.getName());
 
-            //isValid = game.checkIfValid(currentCommand, currentEvent);
+        while (!isValid) {
+            isValid = game.checkIfValid(currentCommand, currentEvent);
             if (isValid) {
                 System.out.println("valid");
                 game.addScore(currentCommand.getPoints());
@@ -133,6 +161,7 @@ public class SingleplayerActivity extends AppCompatActivity implements SensorEve
                 game.endGame();
                 inProgress[0] = false;
             }
+        }
         //}
     }
 }

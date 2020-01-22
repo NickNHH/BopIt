@@ -1,6 +1,8 @@
 package ch.appquest.nico.bopit;
 
+import android.hardware.Sensor;
 import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
 
 import java.util.Random;
 
