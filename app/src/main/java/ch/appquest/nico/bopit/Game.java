@@ -17,7 +17,7 @@ class Game {
         Random random = new Random();
         int number = random.nextInt(commands.getCommands().size());
 
-        return commands.getCommands().get(4);
+        return commands.getCommands().get(number);
     }
 
     void increaseSpeed() {
